@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../database/database.js";
 
-export const Producto = sequelize.define("Producto", {
+export const Cita = sequelize.define("Cita", {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -13,11 +13,11 @@ export const Producto = sequelize.define("Producto", {
     nombre: {
         type: DataTypes.STRING
     },
-    precio: {
-        type: DataTypes.INTEGER
+    profesor: {
+        type: DataTypes.STRING
     },
-    cantidad: {
-        type: DataTypes.INTEGER
+    fecha: {
+        type: DataTypes.STRING
     }
 }, {
     freezeTableName: true

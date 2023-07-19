@@ -1,7 +1,6 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -16,5 +15,14 @@
     "pg": "^8.11.1",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.32.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doliverosa/server-bd-pw.git"
+  },
+  "bugs": {
+    "url": "https://github.com/doliverosa/server-bd-pw/issues"
+  },
+  "homepage": "https://github.com/doliverosa/server-bd-pw#readme",
+  "description": ""
 }

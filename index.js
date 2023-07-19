@@ -1,7 +1,7 @@
 import express from "express"
 import cors from "cors"
 import { sequelize } from "./database/database.js"
-import { Producto } from "./models/Producto.js"
+import { Cita } from "./models/Cita.js"
 
 const app = express()
 const port = process.env.PORT || 3001
@@ -16,35 +16,35 @@ async function conexionBD() {
     }
 }
 
-app.get("/listar-productos/:codigo", async function(req, res) {
-    const productos = await Producto.findAll( {where: {
+app.get("/listar-citas/:codigo", async function(req, res) {
+    const citas = await Cita.findAll( {where: {
         codigo: req.params.codigo
     }})
-    res.send(productos)
+    res.send(citas)
 })
 
-app.get("/eliminar-producto/:codigo", async function(req, res) {
-    await Producto.destroy({
+app.get("/eliminar-citas/:codigo", async function(req, res) {
+    await Cita.destroy({
         where: {
             codigo: req.params.codigo
         }
     })
-    res.send("Producto eliminado")
+    res.send("Cita eliminada")
 })
 
-app.get("/guardar-producto/:codigo/:nombre/:precio/:cantidad", async function(req, res) {
+app.get("/guardar-cita/:codigo/:nombre/:profesor/:fecha", async function(req, res) {
     let cod = req.params.codigo;
     let nom = req.params.nombre;
-    let prec = req.params.precio;
-    let cant = req.params.cantidad;
+    let prof = req.params.profesor;
+    let fech = req.params.fecha;
 
-    await Producto.create({
+    await Cita.create({
         codigo: cod,
         nombre: nom,
-        precio: prec,
-        cantidad: cant
+        profesor: prof,
+        fecha: fech
     })
-    res.send("Producto creado satisfactoriamente")
+    res.send("Cita creada satisfactoriamente")
 })
 
 app.get("/", function(req, res) {
